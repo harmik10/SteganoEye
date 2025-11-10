@@ -1,0 +1,122 @@
+<!-- harmik -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StegnoEye - Secure Embed</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css1.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+<body>
+<div class="container mt-5">
+    <h2><span id="typed"></span></h2>
+
+    <div class="extract-btn-container mb-3">
+        <a href="{{ url_for('extract') }}" class="btn btn-outline-secondary">Go to Extract Page</a>
+    </div>
+
+    <form action="{{ url_for('embed') }}" method="POST" enctype="multipart/form-data" class="card p-4 shadow-lg glassmorph">
+       <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
+            <!-- Input Option Toggle -->
+            <div class="radio-toggle-group">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inputOption" id="uploadFileOption" value="file" onchange="toggleInputOption()">
+                    <label class="form-check-label" for="uploadFileOption">Upload File</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inputOption" id="enterTextOption" value="text" checked onchange="toggleInputOption()">
+                    <label class="form-check-label" for="enterTextOption">Enter Text</label>
+                </div>
+            </div>
+
+            <!--Encryption Toggle -->
+            <div class="d-flex align-items-center mt-2 mt-md-0">
+                <label class="form-check-label me-2" id="encryptLabel">Encryption</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="encryptToggle" name="encryption_toggle" onchange="toggleLabel()">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Message Inputs -->
+        <div class="mb-3" id="textInputGroup">
+            <label for="message" class="form-label">Enter Message:</label>
+            <textarea id="message" name="message" rows="5" class="form-control" placeholder="Type your secret message here..."></textarea>
+        </div>
+
+        <div class="mb-3" id="fileInputGroup" style="display: none;">
+            <label for="messageFile" class="form-label" >Upload Text/image File:</label>
+            <input type="file" id="messageFile" name="messageFile" class="form-control" accept=".txt, .png, .jpg" >
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Choose Image:</label>
+            <input type="file" id="image" name="image" class="form-control" accept="image/*" required onchange="previewImage(event)">
+        </div>
+
+       <div class="mb-3 d-flex align-items-start gap-3">
+            <img id="imagePreview" src="#" alt="Image Preview"
+                style="display:none; max-width: 300px;" class="img-thumbnail mt-2">
+
+            <!-- Ensure this container is present and visible -->
+            <div id="imageInfo" class="text-muted mt-2" style="display:block;">
+                <!-- JS will dynamically insert image details including Color Mode here -->
+            </div>
+        </div>
+
+
+
+        <div class="d-grid">
+            <button type="submit" class="btn btn-encrypt">🔒 Embed Message</button>
+        </div>
+    </form>
+
+    {% if success and filename %}
+    <div class="alert alert-success mt-4">
+        ✅ Message embedded successfully!
+    </div>
+    <div class="text-center mt-3">
+        <a href="{{ url_for('static', filename=filename) }}"
+           download="{{ filename }}"
+           class="btn btn-success">⬇️ Download Stego Image</a>
+    </div>
+    {% endif %}
+</div>
+
+<!--Toast Notification Container -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
+  <div id="notifToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body" id="toastMessage">
+        <!-- Dynamic message goes here -->
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap Bundle (for Toasts) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Your logic file -->
+<script src="{{ url_for('static', filename='js/logic1.js') }}"></script>
+
+<!-- Toast triggers from Flask -->
+{% if success and filename %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    showNotification('✅ Message embedded successfully! Click download to save.', 'success');
+});
+</script>
+{% endif %}
+
+{% if error %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    showNotification('⚠️ {{ error }}', 'error');
+});
+</script>
+{% endif %}
+</body>
+</html>
