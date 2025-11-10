@@ -1,0 +1,122 @@
+body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h2 {
+    color: #58a6ff;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+h2:hover {
+    background-color: #58a6ff;
+    color: #0a0202;
+    text-shadow: 0 0 8px rgb(53, 160, 248);
+    box-shadow: 0 0 10px #4385e8;
+    cursor: pointer;
+}
+
+.extract-btn-container {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: right; /* Ensures button stays on the right */
+}
+
+.extract-btn-container .btn {
+    padding: 0.5rem 1.2rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.extract-btn-container .btn:hover {
+    background-color: #58a6ff;
+    color: #0d1117;
+    box-shadow: 0 0 10px #58a6ff;
+}
+
+.btn-encrypt {
+    background-color: #21262d;
+    color: #58a6ff;
+    border: 1px solid #58a6ff;
+    transition: all 0.3s ease;
+}
+
+.btn-encrypt:hover {
+    background-color: #58a6ff;
+    color: #0d1117;
+    box-shadow: 0 0 10px #58a6ff, 0 0 20px #58a6ff;
+}
+
+.glassmorph {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.1);
+}
+
+.form-check-input {
+    width: 3rem;
+    height: 1.5rem;
+    background-color: #dc3545;
+    border: 2px solid #dc3545;
+    box-shadow: 0 0 5px #dc3545, 0 0 20px #dc3545;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    background-color: #28a745;
+    border-color: #28a745;
+    box-shadow: 0 0 10px #28a745, 0 0 20px #28a745;
+}
+
+.radio-toggle-group {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.1);
+    margin-bottom: 1rem;
+}
+
+.radio-toggle-group .form-check-input {
+    display: none;
+}
+
+.radio-toggle-group .form-check-label {
+    background-color: #21262d;
+    color: #c9d1d9;
+    border: 1px solid #58a6ff;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.radio-toggle-group .form-check-input:checked + .form-check-label {
+    background-color: #58a6ff;
+    color: #0d1117;
+    box-shadow: 0 0 10px #58a6ff;
+}
+
+#imageInfo {
+    background-color: rgba(255, 255, 255, 0.884);
+    color: #1e1e1e;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+    line-height: 1.5;
+}

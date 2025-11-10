@@ -1,0 +1,134 @@
+/* ===== Base Styling ===== */
+body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== Heading ===== */
+h2 {
+    color: #58a6ff;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+h2:hover {
+    background-color: #58a6ff;
+    color: #0a0202;
+    text-shadow: 0 0 8px rgb(53, 160, 248);
+    box-shadow: 0 0 10px #4385e8;
+    cursor: pointer;
+}
+
+/* ===== Glassmorphism Container ===== */
+.glass-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 650px;
+    margin: 40px auto;
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* ===== File Upload Input ===== */
+.form-label {
+    font-weight: bold;
+    color: #58a6ff;
+}
+
+input[type="file"] {
+    background-color: #21262d;
+    color: #c9d1d9;
+    border: 1px solid #58a6ff;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #58a6ff;
+    color: #0d1117;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    margin-right: 1rem;
+    transition: background 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #3c8ce7;
+}
+
+/* ===== Image Preview ===== */
+#imagePreview {
+    border-radius: 12px;
+    margin-top: 15px;
+    box-shadow: 0 0 12px rgba(88, 166, 255, 0.3);
+}
+
+/* ===== Image Info Section ===== */
+#imageInfo {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000000 !important;  /* Force black text */
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+    margin-top: 1.2rem;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+/* ===== Buttons ===== */
+.btn {
+    padding: 0.6rem 1.4rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid #58a6ff;
+}
+
+.btn-warning {
+    background-color: #21262d;
+    color: #58a6ff;
+}
+
+.btn-warning:hover {
+    background-color: #58a6ff;
+    color: #0d1117;
+    box-shadow: 0 0 12px #58a6ff, 0 0 18px #58a6ff;
+}
+
+.btn-outline-light {
+    color: #c9d1d9;
+    border-color: #58a6ff;
+}
+
+.btn-outline-light:hover {
+    background-color: #58a6ff;
+    color: #0d1117;
+    box-shadow: 0 0 8px #58a6ff;
+}
+
+/* ===== Alerts ===== */
+.alert-success {
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid rgba(40, 167, 69, 0.5);
+    color: #d4edda;
+    font-weight: 500;
+    font-family: 'Courier New', monospace;
+}
+
+/* ===== Utility ===== */
+.text-center {
+    text-align: center;
+}
+
+.text-end {
+    text-align: right;
+}
